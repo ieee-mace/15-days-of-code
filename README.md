@@ -21,10 +21,10 @@ Fork this repository. Create a folder with your registered e-mail ID as the name
 ## JUDGEMENT CRITERIA
 
 The following aspects of your final submissionn will be judged.
-1 Practical Applications-40%
-2 UI/UX-15%
-3 Implementability-30%
-4 consistency-15%
+1)	Practical Applications – 40%
+2)	UI/UX – 15%
+3)	Implementability – 30%
+4)	Consistency – 15%
 
 Happy coding folks
 eat(); sleep(); code(); repeat();
