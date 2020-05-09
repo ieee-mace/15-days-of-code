@@ -1,7 +1,8 @@
 # 15-days-of-code
 Welcome participants
--This is the master repository within which you will create and commit your code.
--Fork this repository. Create a folder with your registered e-mail ID as the name and commit your codes in to that folder.
+- This is the master repository within which you will create and commit your code.
+- Fork and clone this repository
+- Create a folder with your registered e-mail ID as the name and commit your codes in to that folder.
 
 ## Code of Conduct
 1)	 You can do any project of your choice. There are no restrictions.
