@@ -1,0 +1,9 @@
+{% extends 'layout.html' %} {% block body %} {% for post in posts %}
+<div class="card blog-card">
+  <div class="card-body">
+    <h1 class="card-title">{{ post.title }}</h1>
+    <p class="card-text">{{ post.content }}</p>
+    <a href="#" class="btn btn-primary">Read Now</a>
+  </div>
+</div>
+{% endfor %} {% endblock %}
