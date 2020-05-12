@@ -2,9 +2,41 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+class Grid extends React.Component{
+  render(){
+    return(
+      <div>
+      GRID 
+      </div>
+    );
+  }
+}
+
+class Main extends React.Component{
+
+  constructor() {
+    super();
+    this.state = {
+      generation: 0,
+    }
+  }
+
+  render(){
+    return(
+      <div>
+        <h1>Conway</h1>
+        <h2>The Game of Life</h2>
+        <Grid
+        />
+        <h3>Generations: {this.state.generation}</h3>
+      </div>
+    );
+  }
+
+}
 
 ReactDOM.render(
-  <p>Hello World</p>,
+  <Main />,
   document.getElementById('root')
 );
 
