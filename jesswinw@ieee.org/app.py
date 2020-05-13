@@ -23,7 +23,7 @@ def index():
     return render_template('index.html', posts=posts)
 
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def reg():
     form = RegistrationForm()
     return render_template('register.html', title='Register', form=form)
