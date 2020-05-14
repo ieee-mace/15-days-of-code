@@ -1,11 +1,10 @@
 import React from 'react';
-
+import '../assests/navbar.css';
 function Navbar() {
     return (
+      
       <div className="navbar">
-        <ul>
-           Navbar
-        </ul>
+        navbar
         
       </div>
     );

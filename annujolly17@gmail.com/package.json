@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/annu12340/15-days-of-code/issues"
   },
-  "homepage": "https://github.com/annu12340/15-days-of-code#readme"
+  "homepage": "https://github.com/annu12340/15-days-of-code#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
+    "reactstrap": "^8.4.1"
+  }
 }
