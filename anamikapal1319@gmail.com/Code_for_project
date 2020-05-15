@@ -41,4 +41,13 @@ def __init__(self):
         self.active_button = self.pen_button
         self.c.bind('<B1-Motion>', self.paint)
         self.c.bind('<ButtonRelease-1>', self.reset)
+  def use_pen(self):
+        self.activate_button(self.pen_button)
+
+    def use_brush(self):
+        self.activate_button(self.brush_button)
+
+    def choose_color(self):
+        self.eraser_on = False
+        self.color = askcolor(color=self.color)[1]
 
