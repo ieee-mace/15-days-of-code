@@ -1,9 +1,9 @@
 from flask import render_template, url_for, redirect, flash
-from bloggy import app
+from bloggy import app, bcrypt, db
 from bloggy.forms import RegistrationForm, LoginForm
 from datetime import datetime
 from bloggy.models import Users, Posts
-
+from flask_login import login_user
 
 posts = [{
     'author': 'Bob Vance',
@@ -28,9 +28,15 @@ def index():
 def reg():
     form = RegistrationForm()
     if(form.validate_on_submit()):
+        hashed_pass = bcrypt.generate_password_hash(
+            form.password.data).decode('utf-8')
+        user = Users(username=form.username.data,
+                    email=form.email.data, password=hashed_pass)
+        db.session.add(user)
+        db.session.commit()
         flash(
-            f'Account successfully created for {form.username.data}!', 'success')
-        return redirect(url_for('index'))
+            f'Account has been successfully created', 'success')
+        return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
 
@@ -38,8 +44,9 @@ def reg():
 def login():
     form = LoginForm()
     if(form.validate_on_submit()):
-        if(form.email.data == 'admin@bloggy.com' and form.password.data == 'password'):
-            flash('You have been logged In', 'success')
+        user = Users.query.filter_by(email=form.email.data).first()
+        if(user and bcrypt.check_password_hash(user.password, form.password.data)):
+            login_user(user, remember=form.remember.data)
             return redirect(url_for('index'))
         else:
             flash('Incorrect Password or Email ID', 'danger')
