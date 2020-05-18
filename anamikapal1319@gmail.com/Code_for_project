@@ -62,5 +62,7 @@ def __init__(self):
         self.line_width = self.choose_size_button.get()
         paint_color = 'white' if self.eraser_on else self.color
         if self.old_x and self.old_y:
+            self.c.create_line(self.old_x, self.old_y, event.x, event.y,
+                               width=self.line_width, fill=paint_color,
 
 
