@@ -3,7 +3,7 @@ from bloggy import app, bcrypt, db
 from bloggy.forms import RegistrationForm, LoginForm
 from datetime import datetime
 from bloggy.models import Users, Posts
-from flask_login import login_user
+from flask_login import login_user,logout_user,current_user,login_required
 
 posts = [{
     'author': 'Bob Vance',
@@ -52,3 +52,13 @@ def login():
             flash('Incorrect Password or Email ID', 'danger')
 
     return render_template('login.html', title='Login', form=form)
+
+@app.route('/account')
+@login_required
+def account():
+    return render_template('account.html',title='Account')
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
