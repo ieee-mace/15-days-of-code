@@ -16,6 +16,25 @@
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+    <div class="container">
+      <a class="navbar-brand mr-4" href="/">Bloggy</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <!-- Navbar Right Side -->
+        <div class="navbar-nav ml-auto">
+          {% if current_user.is_authenticated %}
+            <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
+            <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+          {% else %}
+            <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+            <a class="nav-item nav-link" href="{{ url_for('reg') }}">Register</a>
+          {% endif %}
+        </div>
+      </div>
+  </nav>
   <div class="container">
     {% with messages=get_flashed_messages(with_categories=true) %}
     {% if messages %}
