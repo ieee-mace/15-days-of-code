@@ -1,6 +1,6 @@
-from flask import render_template, url_for, redirect, flash
+from flask import render_template, url_for, redirect, flash,request
 from bloggy import app, bcrypt, db
-from bloggy.forms import RegistrationForm, LoginForm
+from bloggy.forms import RegistrationForm, LoginForm, UserupdateForm
 from datetime import datetime
 from bloggy.models import Users, Posts
 from flask_login import login_user,logout_user,current_user,login_required
@@ -53,10 +53,21 @@ def login():
 
     return render_template('login.html', title='Login', form=form)
 
-@app.route('/account')
+@app.route('/account',methods=['GET','POST'])
 @login_required
 def account():
-    return render_template('account.html',title='Account')
+    form = UserupdateForm()
+    image = url_for('static',filename="profile-pics/"+current_user.profile_img)
+    if(form.validate_on_submit()):
+        current_user.username = form.username.data    
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('Your account has been updated','success')
+        return redirect(url_for('account'))
+    elif(request.method == 'GET'): 
+        form.username.data = current_user.username   
+        form.email.data = current_user.email   
+    return render_template('account.html',title='Account',profile_img = image,form=form)
 
 @app.route('/logout')
 def logout():
