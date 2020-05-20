@@ -4,7 +4,7 @@ from tkinter.colorchooser import askcolor
 
 class Paint(object):
 
-    DEFAULT_PEN_SIZE = 20.0
+    DEFAULT_PEN_SIZE = 19.0
     DEFAULT_COLOR = 'black'
 
 def __init__(self):
