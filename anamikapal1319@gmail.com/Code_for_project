@@ -67,5 +67,8 @@ def __init__(self):
                                capstyle=ROUND, smooth=TRUE, splinesteps=36)
         self.old_x = event.x
         self.old_y = event.y
+def reset(self, event):
+        self.old_x, self.old_y = None, None
+
 
 
