@@ -4,6 +4,9 @@ from bloggy.forms import RegistrationForm, LoginForm, UserupdateForm
 from datetime import datetime
 from bloggy.models import Users, Posts
 from flask_login import login_user,logout_user,current_user,login_required
+import os 
+import secrets
+from PIL import Image
 
 posts = [{
     'author': 'Bob Vance',
@@ -53,12 +56,29 @@ def login():
 
     return render_template('login.html', title='Login', form=form)
 
+def save_picture(form_picture):
+    rand_hex = secrets.token_hex(8)
+    _,extension = os.path.splitext(form_picture.filename)
+    pic_fname = rand_hex + extension
+    # pic_path = os.path.join(app.root_path,'static/profile_pics',pic_fname)
+    pic_path = os.path.join(app.root_path,'static/profile-pics',pic_fname)
+
+    req_size = (125,125)
+    i = Image.open(form_picture)
+    i.thumbnail(req_size)
+
+    i.save(pic_path)
+    return pic_fname
+
 @app.route('/account',methods=['GET','POST'])
 @login_required
 def account():
     form = UserupdateForm()
     image = url_for('static',filename="profile-pics/"+current_user.profile_img)
     if(form.validate_on_submit()):
+        if(form.picture.data):
+            picture_file = save_picture(form.picture.data)
+            current_user.profile_img = picture_file
         current_user.username = form.username.data    
         current_user.email = form.email.data
         db.session.commit()

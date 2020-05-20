@@ -43,20 +43,19 @@ class UserupdateForm(FlaskForm):
     submit = SubmitField('Change')
 
     def validate_username(self, username):
-        if(current_user.username != username):
+        if(current_user.username != username.data):
+            print(current_user.username,username)
             user = Users.query.filter_by(username=username.data).first()
             if user:
                 raise ValidationError('Username already taken')
-        elif(current_user.username == username):
-            raise ValidationError('Your username is the same for this account')
-            
+                    
 
 
 
     def validate_email(self, email):
-        if(current_user.email != email):
+        if(current_user.email != email.data):
+            print(current_user.email,email)
             user = Users.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('An account with the same email is present')
-            elif(current_user.username == username):
-                raise ValidationError('You have the same email linked to this account')
+        

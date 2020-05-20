@@ -2,12 +2,12 @@
 {% block body %}
 <div class="card">
     <div class=" card-body media">
-        <img class=" m-3" style="height: 64px;" src="{{ profile_img }}">
+        <img class="border border-primary rounded-circle m-3" style="height: 70px;" src="{{ profile_img }}">
         <div class="media-body">
             <h2 class="account-heading">{{ current_user.username }}</h2>
             <p class="text-secondary">{{ current_user.email }}</p>
         
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <div class="form-group">
@@ -39,7 +39,14 @@
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    {{ form.picture.label(class="form-control-label") }}
+                    {{ form.picture.label() }}
+                    {{ form.picture(class="form-control-file") }}
+                    {% if form.picture.errors %}
+                        {% for error in form.picture.errors %}
+                            <span class="text-danger">{{ error }}</span><br>
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}
