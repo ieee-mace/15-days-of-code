@@ -58,7 +58,7 @@ def __init__(self):
         some_button.config(relief=SUNKEN)
         self.active_button = some_button
         self.eraser_on = eraser_mode
- def paint(self, event):
+ def paint(self, event)
         self.line_width = self.choose_size_button.get()
         paint_color = 'white' if self.eraser_on else self.color
         if self.old_x and self.old_y:
