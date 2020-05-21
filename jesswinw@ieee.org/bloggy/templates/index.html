@@ -3,7 +3,7 @@
   <div class="card-body">
     <h1 class="card-title">{{ post.title }}</h1>
     <p class="card-text">{{ post.content }}</p>
-    <a href="#" class="btn btn-primary">Read Now</a>
+    <a href="{{ url_for('post',post_id=post.id) }}" class="btn btn-primary">Read Now</a>
   </div>
 </div>
 {% endfor %} {% endblock %}
