@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, flash,request
 from bloggy import app, bcrypt, db
-from bloggy.forms import RegistrationForm, LoginForm, UserupdateForm
+from bloggy.forms import RegistrationForm, LoginForm, UserupdateForm, PostForm
 from datetime import datetime
 from bloggy.models import Users, Posts
 from flask_login import login_user,logout_user,current_user,login_required
@@ -8,22 +8,10 @@ import os
 import secrets
 from PIL import Image
 
-posts = [{
-    'author': 'Bob Vance',
-    'title': 'Refridgerators affecting my Life',
-    'content': 'asdhaskdhaskjhd daskjdhkjash kdjsah kdjhaskjdh kash dkjash dkjash k',
-    'date': 'April 23,2020'
-}, {
-    'author': 'John Doe',
-    'title': 'Everyody uses my name!!',
-    'content': 'asdhaskdhaskjhd daskjdhkjash kdjsah kdjhaskjdh kash dkjash dkjash k',
-    'date': 'April 22,2020'
-}]
-
-
 @app.route('/')
 @app.route('/home')
 def index():
+    posts = Posts.query.all()
     return render_template('index.html', posts=posts)
 
 
@@ -93,3 +81,15 @@ def account():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route('/post/new',methods=['GET','POST'])
+@login_required
+def create_post():
+    form = PostForm()
+    if(form.validate_on_submit()):
+        post = Posts(title=form.title.data,content=form.content.data,author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash("Your post has been created",'success')
+        return redirect(url_for('index'))
+    return render_template('create_post.html',title='New Post',form=form)

@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from flask_wtf.file import FileField,FileAllowed
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from flask_wtf.file import FileField,FileAllowed 
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from bloggy.models import Users, Posts
 from flask_login import current_user
@@ -59,3 +59,7 @@ class UserupdateForm(FlaskForm):
             if user:
                 raise ValidationError('An account with the same email is present')
         
+class PostForm(FlaskForm):
+    title = StringField('Title',validators=[DataRequired()])
+    content = TextAreaField('Content',validators=[DataRequired()])
+    submit = SubmitField('Post')
