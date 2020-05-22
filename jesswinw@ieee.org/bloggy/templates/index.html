@@ -1,4 +1,4 @@
-{% extends 'layout.html' %} {% block body %} {% for post in posts %}
+{% extends 'layout.html' %} {% block body %} {% for post in posts.items %}
 <div class="card blog-card">
   <div class="card-body">
     <h1 class="card-title">{{ post.title }}</h1>
@@ -6,4 +6,16 @@
     <a href="{{ url_for('post',post_id=post.id) }}" class="btn btn-primary">Read Now</a>
   </div>
 </div>
-{% endfor %} {% endblock %}
+{% endfor %}
+{% for page_num in posts.iter_pages(left_edge=1,right_edge=1,left_current=1,right_current=2) %}
+  {% if page_num %}
+    {% if posts.page == page_num %}
+      <a class="btn btn-info mb-4" href="{{ url_for('index',page=page_num) }}">{{ page_num }}</a>
+    {% else %}
+      <a class="btn btn-outline-info mb-4" href="{{ url_for('index',page=page_num) }}">{{ page_num }}</a>
+    {% endif %}
+  {% else %}
+    ...
+  {% endif %}
+{% endfor %}
+{% endblock %}

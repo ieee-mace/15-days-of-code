@@ -11,7 +11,8 @@ from PIL import Image
 @app.route('/')
 @app.route('/home')
 def index():
-    posts = Posts.query.all()
+    page = request.args.get('page',1,type=int)
+    posts = Posts.query.order_by(Posts.date_posted.desc()).paginate(page=page,per_page=5)
     return render_template('index.html', posts=posts)
 
 
@@ -128,3 +129,9 @@ def delete_post(post_id):
     flash('Your post has been deleted','success')
     return redirect(url_for('index'))
     
+@app.route("/user/<string:username>")
+def user_post():
+    page = request.args.get('page',1,type=int)
+    user =  Users.query.filter_by(username=username).first_or_404()
+    posts = Posts.query.filter_by(author=user).order_by(Posts.date_posted.desc()).paginate(page=page,per_page=5)
+    return render_template('user_page.html', posts=posts,user=user)
