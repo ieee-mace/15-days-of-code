@@ -1,14 +1,18 @@
 {% extends 'layout.html' %} {% block body %} {% for post in posts.items %}
 <div class="card blog-card">
-  <div class="card-body">
-    <h1 class="card-title">{{ post.title }}</h1>
-    <p class="card-text">{{ post.content }}</p>
+  <div class="card-body media">
+    <img class="rounded-circle m-3" style="height: 70px;" src="{{ url_for('static', filename='profile-pics/' + post.author.profile_img) }}">
+      <div class="media-body">
+    <h1 class="card-title mb-0">{{ post.title }}</h1>
+    <a href="{{ url_for('user_post',username=post.author.username) }}" class="text-primary">@{{ post.author.username }}</a>
+    <p class="card-text mt-2">{{ post.content }}</p>
     <a href="{{ url_for('post',post_id=post.id) }}" class="btn btn-primary">Read Now</a>
   </div>
 </div>
+</div>
 {% endfor %}
 {% for page_num in posts.iter_pages(left_edge=1,right_edge=1,left_current=1,right_current=2) %}
-  {% if page_num %}
+  {% if page_num>=1 %}
     {% if posts.page == page_num %}
       <a class="btn btn-info mb-4" href="{{ url_for('index',page=page_num) }}">{{ page_num }}</a>
     {% else %}

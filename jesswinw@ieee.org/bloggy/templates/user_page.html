@@ -1,5 +1,5 @@
 {% extends 'layout.html' %} {% block body %} 
-<h1 class="mb-3">Posts by {{ user.username }} ({{ posts.total }})</h1>
+<h2 class="mb-3">Posts by {{ user.username }} ({{ posts.total }})</h2>
 {% for post in posts.items %}
 <div class="card blog-card">
   <div class="card-body">
