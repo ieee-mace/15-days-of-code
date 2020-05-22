@@ -1,0 +1,21 @@
+{% extends "layout.html"%} {% block content%}
+
+<h1>Show response</h1>
+
+
+<div>
+    {% for i in show_post %}
+    {{i.id}}. <h2>{{ i.title }}</h2> <br>
+    <span>{{i.shortdescription}}</span>
+    {{i.description}} <br>
+
+    <b> Posted by {{i.createdby_id}}</b>
+    <hr>
+    {% endfor %}
+</div>
+
+
+<h2>The end</h2>
+
+
+{% endblock%}

@@ -1,0 +1,75 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<h1>Particular post</h1>
+<br>
+<b>
+    title : {{post.title}}
+</b>
+<hr>
+<img src="https://images.pexels.com/photos/318391/pexels-photo-318391.jpeg?&cs=tinysrgb&dpr=2&h=650&w=940" alt="" width="1200px" height="500px">
+<br>
+{{post.shortdescription}}
+
+<br>
+By : {{name}}
+<br><br><br>
+{{post.description}}
+
+<br><br>
+Like :{{post.like}}
+Dislike : {{post.dislike}}
+<form action="" method="post">
+    <button type="submit" class="btn btn-dark" value="{{ post.id }}">
+        <a href="{{ url_for('likedislike', id=post.id, likedislike=1) }}"> Like </a>
+    </button>
+    <button type="submit" class="btn btn-dark" value="{{ post.id }}">
+        <a href="{{ url_for('likedislike', id=post.id, likedislike=0) }}"> Dislike </a>
+    </button>
+
+
+</form>
+
+<!-- Modal -->
+
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Share
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Share</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="/share" method="post">
+                    <div class="form-group">
+                        Share with <input type="email" name="email" class="form-control" placeholder="Enter email id">
+                        Confirm post id <input type="text" name="post_id" class="form-control"
+                                               placeholder="{{ post.id }}">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">share</button>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock%}

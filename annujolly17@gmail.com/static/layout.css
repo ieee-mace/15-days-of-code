@@ -1,0 +1,14 @@
+a.nav-link:visited {
+  color: white;
+}
+
+body{
+color:#1864ab;
+background-color:#f1f3f5;
+font-size:30px;
+}
+
+.content{
+padding-top:2%;
+padding:5%;
+}

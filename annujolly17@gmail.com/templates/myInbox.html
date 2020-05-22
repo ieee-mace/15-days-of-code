@@ -1,0 +1,24 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<h1>My Inbox</h1>
+
+
+<div class="col-6">
+    <table class="table table-striped table-hover">
+        <tbody>
+        <tr>
+            {% for i in myInbox %}
+            <td scope="row">
+              {{i.sharedby_email}} has shared a post
+                <br>
+                  <button  type="submit" class="btn btn-dark btn-sm"  value="{{ i.id }}">
+                                 <a href="{{ url_for('ParticularPost', id=i.post_id) }}"> View post </a>
+                            </button>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock%}
