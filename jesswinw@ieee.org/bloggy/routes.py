@@ -54,9 +54,13 @@ def save_picture(form_picture):
 
     req_size = (125,125)
     i = Image.open(form_picture)
-    i.thumbnail(req_size)
+    width, height = i.size
+    size = height if (width>height) else width
 
-    i.save(pic_path)
+    i_crop = i.crop((0, 0, size, size))
+    i_crop.thumbnail(req_size)
+
+    i_crop.save(pic_path)
     return pic_fname
 
 @app.route('/account',methods=['GET','POST'])
