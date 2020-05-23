@@ -6,6 +6,15 @@
     {% if post.author == current_user %}
     <a href="{{ url_for('update_post',post_id=post.id) }}" class="btn btn-info btn-sm">Update</a>
     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#DeleteModalCenter">Delete</button>
+    {% else %}
+      <div class="card blog-card">
+        <div class="card-body media">
+          <img class="rounded-circle m-3" style="height: 70px;" src="{{ url_for('static', filename='profile-pics/' + post.author.profile_img) }}">
+            <div class="media-body align-self-center">
+          <p class="text-secondary mb-0">Written by <h3 class="text-primary"><a href="{{ url_for('user_post',username=post.author.username) }}">{{ post.author.username }}</a></h3></p>
+        </div>
+      </div>
+      </div>
     {% endif %}
     
   </div>

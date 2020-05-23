@@ -4,9 +4,13 @@
     <img class="rounded-circle m-3" style="height: 70px;" src="{{ url_for('static', filename='profile-pics/' + post.author.profile_img) }}">
       <div class="media-body">
     <h1 class="card-title mb-0">{{ post.title }}</h1>
-    <a href="{{ url_for('user_post',username=post.author.username) }}" class="text-primary">@{{ post.author.username }}</a>
-    <p class="card-text mt-2">{{ post.content }}</p>
-    <a href="{{ url_for('post',post_id=post.id) }}" class="btn btn-primary">Read Now</a>
+    <a href="{{ url_for('user_post',username=post.author.username) }}" class="text-secondary">@{{ post.author.username }}</a>
+    {% if  post.content |length >200 %}
+    <p class="card-text mt-2 mb-0">{{ post.content[:200] }}...<a href="{{ url_for('post',post_id=post.id) }}" class="text-primary font-italic">Read More</a></p>
+    {% else %}
+    <p class="card-text mt-2 mb-0">{{ post.content }}</p>
+    {% endif %}
+    <p class="text-secondary font-weight-light ">posted on {{ post.date_posted.strftime(('%A, %X')) }}</p>
   </div>
 </div>
 </div>
