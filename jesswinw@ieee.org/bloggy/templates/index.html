@@ -5,12 +5,15 @@
       <div class="media-body">
     <h1 class="card-title mb-0">{{ post.title }}</h1>
     <a href="{{ url_for('user_post',username=post.author.username) }}" class="text-secondary">@{{ post.author.username }}</a>
+    {% if post.author == current_user %}
+    <a href="{{ url_for('post',post_id=post.id) }}" class="text-secondary ml-2">Go to your post</a>
+    {% endif %}
     {% if  post.content |length >200 %}
-    <p class="card-text mt-2 mb-0">{{ post.content[:200] }}...<a href="{{ url_for('post',post_id=post.id) }}" class="text-primary font-italic">Read More</a></p>
+    <p class="card-text mt-2 mb-0">{{ post.content[:200] }}... <a href="{{ url_for('post',post_id=post.id) }}" class="text-primary font-italic">Read More</a></p>
     {% else %}
     <p class="card-text mt-2 mb-0">{{ post.content }}</p>
     {% endif %}
-    <p class="text-secondary font-weight-light ">posted on {{ post.date_posted.strftime(('%A, %X')) }}</p>
+    <p class="text-secondary font-weight-light ">posted on {{ post.date_posted.strftime(('%A, %I:%M %p')) }}</p>
   </div>
 </div>
 </div>
