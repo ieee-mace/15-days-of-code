@@ -1,6 +1,6 @@
 {% extends 'layout.html' %} {% block body %} {% for post in posts.items %}
 <div class="card blog-card">
-  <div class="card-body media">
+ <div class="card-body media">
     <img class="rounded-circle m-3" style="height: 70px;" src="{{ url_for('static', filename='profile-pics/' + post.author.profile_img) }}">
       <div class="media-body">
     <h1 class="card-title mb-0">{{ post.title }}</h1>
