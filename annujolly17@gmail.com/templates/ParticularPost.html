@@ -1,45 +1,49 @@
 {% extends "layout.html"%}
 {% block content%}
 
-<h1>Particular post</h1>
-<br>
-<b>
-    title : {{post.title}}
-</b>
-<hr>
-<img src="https://images.pexels.com/photos/318391/pexels-photo-318391.jpeg?&cs=tinysrgb&dpr=2&h=650&w=940" alt="" width="1200px" height="500px">
-<br>
-{{post.shortdescription}}
-
-<br>
+<h1>{{post.title}}</h1>
 By : {{name}}
-<br><br><br>
-{{post.description}}
 
+<hr>
+    <img src="{{post.img}}" alt=""
+     width="1000px" height="400px">
 <br><br>
-Like :{{post.like}}
-Dislike : {{post.dislike}}
+<div style="color:#495057;font-size:20px; padding-right:10%">{{post.shortdescription}}</div>
+<br>
+<div style="font-size:20px; padding-right:10%">
+
+<br>
+{{post.description}}
+<br>
+
+<br>
+
+</div>
+
 <form action="" method="post">
-    <button type="submit" class="btn btn-dark" value="{{ post.id }}">
-        <a href="{{ url_for('likedislike', id=post.id, likedislike=1) }}"> Like </a>
+    <button type="submit" class="btn btn-default" value="{{ post.id }}">
+        {{post.like}} <a href="{{ url_for('likedislike', id=post.id, likedislike=1) }}"> <span
+            class="glyphicon glyphicon-thumbs-up"></span> Like </a>
     </button>
-    <button type="submit" class="btn btn-dark" value="{{ post.id }}">
-        <a href="{{ url_for('likedislike', id=post.id, likedislike=0) }}"> Dislike </a>
+    <button type="submit" class="btn btn-default" value="{{ post.id }}">
+        {{post.dislike}} <a href="{{ url_for('likedislike', id=post.id, likedislike=0) }}"> <span
+            class="glyphicon glyphicon-thumbs-down"></span> Dislike </a>
     </button>
-
-
-</form>
-
 <!-- Modal -->
 
 <!-- Button to Open the Modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Share
+
+     &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+    <span class="glyphicon glyphicon-send"></span> Share
 </button>
 
+</form>
+
+
+<br><br>
 <!-- The Modal -->
-<div class="modal" id="myModal">
-    <div class="modal-dialog">
+<div class="modal" id="myModal" style="margin-left:0">
+    <div class="modal-dialog" style="    transform: translate(-130%,15%);">
         <div class="modal-content">
 
             <!-- Modal Header -->
@@ -58,14 +62,14 @@ Dislike : {{post.dislike}}
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary">share</button>
+                    <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-share"></span>  share</button>
                 </form>
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
 
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">   <span class="glyphicon glyphicon-remove"></span> Close</button>
             </div>
 
         </div>

@@ -40,7 +40,7 @@ class Inbox(db.Model):
 
 
 ################################## REGISTER  LOGIN  LOGOUT ROUTES ###################################
-
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -78,7 +78,7 @@ def logout():
 ################################## OTHER ROUTES#########################################
 
 
-@app.route('/', methods=['GET', 'POST'])
+
 @app.route('/addPost', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
@@ -89,7 +89,7 @@ def add():
                             createdby_id=user_id)
         db.session.add(new_question)
         db.session.commit()
-        return redirect(url_for('showPost'))
+        return redirect(url_for('home'))
     else:
 
         return render_template('addPost.html')
@@ -159,6 +159,12 @@ def myPost():
     return render_template('myPost.html', myPost=myPost)
 
 
+
+@app.route('/follower')
+def follower():
+    show_user = User.query.order_by(desc(User.id))
+
+    return render_template('followers.html', followers=show_user)
 ################################ DISPLAY #############################################
 
 
