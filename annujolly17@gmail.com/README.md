@@ -1,16 +1,17 @@
 # Mini medium 
 
-In today's world, fake news is spreading fast as would firm. As people continue to share and re share these fake news, it becomes difficult to keep track of it and trace it's origin. But blockchain helps us to do so
+In today's world, fake news is spreading as fast as wild fire. As people continue to share and re share these fake news, it becomes difficult to keep track of it and trace it's origin. But using a blockchain network, would help us combact this situtation
 
-This is a minature version of the medium app, where users can create post, like, dislike and share them. The platform also allows users to follow each other. (The blockchain feature of the platform is still in progress)
+This is a minature version of the medium app, where users can create post, like, dislike and share them. The platform also allows users to follow each other. (When a post is created, a new node is added in the block chain and when the post is shared by user, it would be recorded as transcation in the bc network. The blockchain feature of the platform is still in progress)
 
 
-##### Tech stack
+#### Tech stack
 - Front end : Bootstrap
 - Back end : Flask, SQLite
 - Blockchain network : ganache , solidity
 
-Register form
+#### Demo
+Registeration form
 ![20](https://user-images.githubusercontent.com/43414928/82763031-31373600-9e22-11ea-9cfa-f4e225d4c533.png)
 Login page
 ![21](https://user-images.githubusercontent.com/43414928/82763043-4318d900-9e22-11ea-9a3b-ceb26e1cb3dd.png)
