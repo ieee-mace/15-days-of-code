@@ -9,6 +9,15 @@
 3. Linux (preffered)
 
 ### Steps:
+Clone the repo
+
+```git
+git clone <repo link>
+```
+Move to the repo local folder
+```bash
+cd <repo name>
+```
 
 Make a virtual Environment
 
