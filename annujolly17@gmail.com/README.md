@@ -1,6 +1,8 @@
-# Mini FB with blockchain features
+# Mini medium 
 
-In today's world, fake news is spreading fast as would firm. As people continue to share and re share these fake news, it becomes difficult to keep track of it and trace it's origin
+In today's world, fake news is spreading fast as would firm. As people continue to share and re share these fake news, it becomes difficult to keep track of it and trace it's origin. But blockchain helps us to do so
+
+This is a minature version of the medium app, where users can create post, like, dislike and share them. The platform also allows users to follow each other. (The blockchain feature of the platform is still in progress)
 
 
 ##### Tech stack
