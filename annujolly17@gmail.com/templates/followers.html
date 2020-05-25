@@ -1,0 +1,27 @@
+{% extends "layout.html"%} {% block content%}
+
+
+<div class="row ">
+    <div class="col-6">
+        <h1>Network</h1>
+<br>
+        <p>
+            {% for i in followers %}
+        <div style="font-size:25px;padding:7%" class="network">
+            {{i.name}} <br> <div style="color:#adb5bd;font-size:15px">{{ i.email }}</div>
+            <button type="button" class="btn btn-outline-danger btn-lg">Follow</button>
+            <button class="btn btn-default  btn-lg">Ignore</button>
+
+        </div>
+
+        </p>
+        <br><br>
+        <br> {% endfor %}
+    </div>
+
+
+    <div class="col-5">
+        <img src="https://image.freepik.com/free-vector/following-concept-illustration_114360-1659.jpg" alt="">
+    </div>
+
+    {% endblock%}

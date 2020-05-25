@@ -1,0 +1,19 @@
+ {% extends "layout.html"%}
+ {% block content%}
+
+
+<div class="content">
+    <h2> My  profile</h2>
+  <div class="card">
+    <div class="firstinfo"><img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg"/>
+      <div class="profileinfo">
+
+        <h1> {{user.name}}</h1>
+          <h2>{{user.email}}</h2>
+        <h3> Interest : Sports, Adventure</h3>
+        <p class="bio">Lived all my life on the top of mount Fuji, learning the way to be a Ninja Dev.</p>
+      </div>
+    </div>
+  </div>
+ </div>
+{% endblock%}

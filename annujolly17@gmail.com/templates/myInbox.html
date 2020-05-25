@@ -1,0 +1,31 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<h1>Notifications</h1>
+
+<br>
+<div class="row">
+    <div class="col-6">
+    <table class="table table-striped table-hover" style="font-size:20px; padding:10%">
+        <tbody>
+        <tr>
+            {% for i in myInbox %}
+            <td scope="row">
+              {{i.sharedby_email}} has shared a post
+                <br> <br>
+                  <button  type="submit" class="btn btn-dark "  value="{{ i.id }}">
+                                 <a href="{{ url_for('ParticularPost', id=i.post_id) }}" style="color:white"> View post </a>
+                            </button>
+                 <br><br>
+            </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <div class="col-6">
+        <img src="https://image.freepik.com/free-vector/messages-concept-illustration_114360-583.jpg" alt="">
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,74 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<body style="margin:0;padding:0; background:#f8f9fa !important;">
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3"
+             style="background:url('https://img.freepik.com/free-vector/geometric-background-japanese-style_52683-35345.jpg?size=626&ext=jpg') no-repeat center top ; background-size:cover ; border-top: 2px ridge #e03131">
+            <br>
+            <h3>Most popular</h3>
+            <h1><b>Coronavirus isn’t the killer, our immune response is </b></h1>
+            <br>
+            <span style="color:#adb5bd;font-size:15px">An overreaction from the immune system can endanger a person fighting off an infection</span>
+            <br> <br> <br>
+            <img src="https://d2c7ipcroan06u.cloudfront.net/wp-content/uploads/2020/05/Coronavirus-_Covid-19-696x392.jpg"
+                 alt="" width="105%" height="10%">
+            <br><br>
+            <p>The killer is not the virus but the immune response.
+
+                The current pandemic is unique not just because it is caused by a new virus that puts everyone at risk,
+                but also because the range of innate immune responses is diverse and unpredictable. In some it is strong
+                enough to kill. In others it is relatively mild.
+                My research relates to innate immunity. Innate immunity is a person’s inborn defense against pathogens
+                that instruct the body’s adaptive immune system to produce antibodies against
+                viruses................ </p>
+            <div class="dropdown-divider">
+
+            </div>
+            <br>
+            <b> <span class="glyphicon glyphicon-triangle-bottom "></span> Discover More</b>
+
+        </div>
+        <div class="col-1"></div>
+        <div class="col-8">
+
+            {% for i in showPost %}
+            <div class="homeDiv" style="padding:4%">
+
+                <div class="row">
+                    <div class="col-7">
+                        <b>{{ i.title }}</b>
+
+                        <br>
+                        <span style="color:#495057"> {{i.shortdescription }}</span>
+                        <br><br>
+                        {{ i.like}}&nbsp &nbsp<span class="glyphicon glyphicon-thumbs-up"></span>
+                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                        {{i.dislike}} &nbsp &nbsp<span class="glyphicon glyphicon-thumbs-down"></span>
+                        <br>
+                        <br><br>
+                        <button type="submit" class="btn btn-dark btn-lg" value="{{ i.id }}">
+                            <a href="{{ url_for('ParticularPost', id=i.id) }}"
+                               style="color:white;text-decoration:none"> Read </a>
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <br>
+                        <img src="{{i.img}}" alt="" height="170" width="230">
+                    </div>
+                </div>
+
+                <br>
+
+            </div>
+            <br><br>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+</body>
+{% endblock%}

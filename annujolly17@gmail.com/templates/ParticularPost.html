@@ -1,0 +1,79 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<h1>{{post.title}}</h1>
+By : {{name}}
+
+<hr>
+    <img src="{{post.img}}" alt=""
+     width="1000px" height="400px">
+<br><br>
+<div style="color:#495057;font-size:20px; padding-right:10%">{{post.shortdescription}}</div>
+<br>
+<div style="font-size:20px; padding-right:10%">
+
+<br>
+{{post.description}}
+<br>
+
+<br>
+
+</div>
+
+<form action="" method="post">
+    <button type="submit" class="btn btn-default" value="{{ post.id }}">
+        {{post.like}} <a href="{{ url_for('likedislike', id=post.id, likedislike=1) }}"> <span
+            class="glyphicon glyphicon-thumbs-up"></span> Like </a>
+    </button>
+    <button type="submit" class="btn btn-default" value="{{ post.id }}">
+        {{post.dislike}} <a href="{{ url_for('likedislike', id=post.id, likedislike=0) }}"> <span
+            class="glyphicon glyphicon-thumbs-down"></span> Dislike </a>
+    </button>
+<!-- Modal -->
+
+<!-- Button to Open the Modal -->
+
+     &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+    <span class="glyphicon glyphicon-send"></span> Share
+</button>
+
+</form>
+
+
+<br><br>
+<!-- The Modal -->
+<div class="modal" id="myModal" style="margin-left:0">
+    <div class="modal-dialog" style="    transform: translate(-130%,15%);">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Share</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="/share" method="post">
+                    <div class="form-group">
+                        Share with <input type="email" name="email" class="form-control" placeholder="Enter email id">
+                        Confirm post id <input type="text" name="post_id" class="form-control"
+                                               placeholder="{{ post.id }}">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-share"></span>  share</button>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-danger" data-dismiss="modal">   <span class="glyphicon glyphicon-remove"></span> Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock%}

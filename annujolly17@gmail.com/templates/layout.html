@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/layout.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="  border-bottom: 4px solid #EC4849;">
+
+    <ul class="nav navbar-nav  " style="font-size:17px;">
+        <li class="nav-item">
+            <br>
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+
+        </li>
+        <li class="nav-item">
+
+            <a class="nav-link" href="/home">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                <span class="glyphicon glyphicon-home"></span> <br>&nbsp &nbsp &nbsp &nbsp Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/addPost"> &nbsp &nbsp &nbsp &nbsp &nbsp <span
+                    class="
+glyphicon glyphicon-plus"></span> <br>&nbsp &nbsp &nbsp &nbsp Add</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/inbox"> &nbsp &nbsp &nbsp &nbsp &nbsp<span
+                    class=" glyphicon glyphicon-bell"></span> <br>&nbsp &nbsp Notification</a>
+        </li>
+
+      <li class="nav-item">
+            <a class="nav-link" href="/follower"> &nbsp &nbsp &nbsp &nbsp &nbsp<span
+                    class=" glyphicon glyphicon-user"></span> <br>&nbsp &nbsp My network</a>
+        </li>
+
+        <div class="dropdown" style="float:right;transform:translateX(650%); z-index:10">
+            <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown">
+                <img src="https://img.pngio.com/profile-icon-png-image-free-download-searchpngcom-profile-icon-png-673_673.png"
+                     alt="" height="55" width="55">
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/profile"> Profile</a>
+
+                <a class="dropdown-item" href="/myPost">My Post</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"> Settings</a>
+                <a class="dropdown-item" href="#"> Help</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logout"> &nbsp Login out</a>
+            </div>
+        </div>
+
+
+    </ul>
+
+</nav>
+
+<div class="content">
+    {% block content%} {% endblock%}
+</div>
+
+
+</body>
+
+</html>
