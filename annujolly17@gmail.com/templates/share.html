@@ -1,0 +1,18 @@
+{% extends "layout.html"%} {% block content%}
+
+<h1>share</h1>
+<p style="font-size:20px">
+    {% for i in inbox_shared %}
+    {{i.id}} Post id {{i.post_id}}
+    <br> Shared by :{{ i.sharedby_id }} <br>
+    shared to: {{i.sharedto_email}}
+    <br>
+
+</p>
+
+<br>
+
+<hr> {% endfor %}
+
+<h1>The end</h1>
+{% endblock%}

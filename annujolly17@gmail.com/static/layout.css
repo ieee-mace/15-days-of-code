@@ -1,0 +1,134 @@
+
+
+body{
+color:#1864ab;
+background-color:#f1f3f5;
+font-size:30px;
+}
+
+.content{
+padding-top:1%;
+padding:5%;
+}
+
+
+
+
+/* Register and login form */
+.login-block{
+
+background: linear-gradient(to bottom, #FFB88C, #DE6262); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+float:left;
+width:100%;
+padding : 50px 0;
+}
+.banner-sec{background:url()  no-repeat left bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
+.container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}
+
+
+
+
+
+/* home */
+.homeDiv
+{
+background:#fff;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-color: rgba(0, 0, 0, .1);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .1);
+ font-size:20px;
+}
+
+
+
+/* Profile */
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400";
+.card {
+  margin-top:1% !important;
+  width: 1000px;
+  min-height: 300px;
+  margin:10%;
+  padding: 50px;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+.card:after {
+  content: '';
+  display: block;
+  width: 190px;
+  height: 400px;
+  background: #f03e3e;
+  position: absolute;
+  animation: rotatemagic 0.75s cubic-bezier(0.425, 1.04, 0.47, 1.105) 1s both;
+}
+
+.firstinfo {
+  flex-direction: row;
+  z-index: 2;
+  position: relative;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.firstinfo img {
+  border-radius: 50%;
+  width: 190px;
+  height: 190px;
+}
+.firstinfo .profileinfo {
+  padding: 0px 20px;
+}
+.firstinfo .profileinfo h1 {
+  font-size: 1.8em;
+}
+.firstinfo .profileinfo h3 {
+  font-size: 1.2em;
+  color: #f03e3e;
+  font-style: italic;
+}
+.firstinfo .profileinfo p.bio {
+  padding: 10px 0px;
+  color: #5A5A5A;
+  line-height: 1.2;
+  font-style: initial;
+}
+
+
+
+@keyframes rotatemagic {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+    top: -24px;
+    left: -253px;
+  }
+  100% {
+    transform: rotate(-30deg);
+    top: -24px;
+    left: -78px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* Network */
+.network
+{
+background:#fff;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-color: rgba(0, 0, 0, .1);
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+
+}

@@ -1,0 +1,14 @@
+{% extends "layout.html"%} {% block content%}
+
+<h1>Show</h1>
+<p style="font-size:20px">
+    {% for i in show_user %}
+    {{i.id}} {{i.name}} {{ i.email }}
+</p>
+
+<br>
+<br>
+<hr> {% endfor %}
+
+<h1>The end</h1>
+{% endblock%}
